@@ -47,7 +47,7 @@ export declare class OpenSeaPort {
      */
     removeAllListeners(event?: EventType): void;
     /**
-     * Wraps an arbirary group of NFTs into their corresponding WrappedNFT ERC20 tokens.
+     * Wraps an arbitrary group of NFTs into their corresponding WrappedNFT ERC20 tokens.
      * Emits the `WrapAssets` event when the transaction is prompted.
      * @param param0 __namedParameters Object
      * @param assets An array of objects with the tokenId and tokenAddress of each of the assets to bundle together.
@@ -58,7 +58,7 @@ export declare class OpenSeaPort {
         accountAddress: string;
     }): Promise<void>;
     /**
-     * Unwraps an arbirary group of NFTs from their corresponding WrappedNFT ERC20 tokens back into ERC721 tokens.
+     * Unwraps an arbitrary group of NFTs from their corresponding WrappedNFT ERC20 tokens back into ERC721 tokens.
      * Emits the `UnwrapAssets` event when the transaction is prompted.
      * @param param0 __namedParameters Object
      * @param assets An array of objects with the tokenId and tokenAddress of each of the assets to bundle together.
@@ -71,7 +71,7 @@ export declare class OpenSeaPort {
         accountAddress: string;
     }): Promise<void>;
     /**
-     * Liquidates an arbirary group of NFTs by atomically wrapping them into their
+     * Liquidates an arbitrary group of NFTs by atomically wrapping them into their
      * corresponding WrappedNFT ERC20 tokens, and then immediately selling those
      * ERC20 tokens on their corresponding Uniswap exchange.
      * Emits the `LiquidateAssets` event when the transaction is prompted.
@@ -316,6 +316,15 @@ export declare class OpenSeaPort {
         recipientAddress?: string;
         referrerAddress?: string;
     }): Promise<string>;
+    getFulfillOrderParameters({ order, accountAddress, recipientAddress, referrerAddress }: {
+        order: Order;
+        accountAddress: string;
+        recipientAddress?: string;
+        referrerAddress?: string;
+    }): Promise<{
+        args: any;
+        txnData: any;
+    }>;
     /**
      * Cancel an order on-chain, preventing it from ever being fulfilled.
      * @param param0 __namedParameters Object
@@ -767,6 +776,7 @@ export declare class OpenSeaPort {
     private _getPriceParameters;
     private _getMetadata;
     private _atomicMatch;
+    private _atomicMatchParams;
     private _getRequiredAmountForTakingSellOrder;
     private _authorizeOrder;
     private _getSchema;
