@@ -2988,12 +2988,12 @@ export class OpenSeaPort {
 
     if (sell.maker.toLowerCase() == accountAddress.toLowerCase()) {
       // USER IS THE SELLER, only validate the buy order
-      await this._sellOrderValidationAndApprovals({ order: sell, accountAddress })
+    //   await this._sellOrderValidationAndApprovals({ order: sell, accountAddress })
       shouldValidateSell = false
 
     } else if (buy.maker.toLowerCase() == accountAddress.toLowerCase()) {
       // USER IS THE BUYER, only validate the sell order
-      await this._buyOrderValidationAndApprovals({ order: buy, counterOrder: sell, accountAddress })
+    //   await this._buyOrderValidationAndApprovals({ order: buy, counterOrder: sell, accountAddress })
       shouldValidateBuy = false
 
       // If using ETH to pay, set the value of the transaction to the current price
